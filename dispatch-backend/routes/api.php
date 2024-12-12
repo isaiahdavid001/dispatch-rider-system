@@ -13,3 +13,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/booking/{id}/accept', [BookingController::class, 'accept']);
     Route::post('/booking/{id}/complete', [BookingController::class, 'complete']);
 });
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/ratings', [RatingController::class, 'store']); // Submit a rating
+    Route::get('/ratings/{id}', [RatingController::class, 'show']); // Get ratings for a user or rider
+});
+
